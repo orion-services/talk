@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,9 @@ public class User {
     /** Hash of the user. */
     private String hash;
 
+    /** Name of the user. */
+    private String name;
+
     /**
      * Default constructor.
      */
@@ -49,6 +52,24 @@ public class User {
      */
     public void setHash(final String hash) {
         this.hash = hash;
+    }
+
+    /**
+     * Get user name.
+     *
+     * @return User name.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set user name.
+     *
+     * @param name User name.
+     */
+    public void setName(final String name) {
+        this.name = name;
     }
 
 }

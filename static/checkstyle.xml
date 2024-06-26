@@ -6,4 +6,5 @@
 
 <suppressions>
   <suppress checks="HiddenField" files="."/>
+  <suppress checks="VisibilityModifier" files="."/>
 </suppressions>

@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,13 +42,14 @@ public class ServiceController extends Controller {
      * Creates a channel.
      *
      * @param channel A {@link ChannelEntity} with the channel
+     * @param user    A {@link UserEntity} with the user
      * @return  A {@link Uni} of {@link Channel}
      */
     public Uni<ChannelEntity> addChannel(
             final ChannelEntity channel,
             final UserEntity user) {
 
-        return this.findUser(user.getHash())
+        return this.findUser(user.getHash(), user.getName())
             .onItem().ifNotNull().transformToUni(u -> {
                 Channel model = channelUC.createChannel(
                     channel.getName(),
@@ -73,7 +74,7 @@ public class ServiceController extends Controller {
     public Uni<MessageEntity> createMessage(final String text,
         final String userName, final String userHash,
         final String channelHash) {
-        return findUser(userHash)
+        return findUser(userHash, userName)
                 .onItem().transformToUni(user -> {
                     return findChannel(channelHash)
                             .onItem().ifNotNull().transformToUni(channel -> {
@@ -116,14 +117,16 @@ public class ServiceController extends Controller {
      * Finds a user by hash.
      *
      * @param userHash A {@link String} hash of the user
+     * @param name     The {@link String} name of the user
      * @return A {@link Uni} of {@link UserEntity}
      */
-    private Uni<UserEntity> findUser(final String userHash) {
+    private Uni<UserEntity> findUser(final String userHash, final String name) {
         return userRepo.find(HASH_QUERY, userHash).firstResult()
             .onItem().ifNotNull().transform(user -> user)
             .onItem().ifNull().continueWith(() -> {
                 UserEntity user = new UserEntity();
                 user.setHash(userHash);
+                user.setName(name);
                 return user;
             });
     }

@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,11 @@ import jakarta.ws.rs.core.Response.Status;
  * Frameworks and Drivers layer of Clean Architecture.
  */
 public class ServiceException extends WebApplicationException {
+
+    /**
+     * The serial version UID.
+     */
+    private static final long serialVersionUID = 1L;
 
     /**
      * ServiceException constructor.

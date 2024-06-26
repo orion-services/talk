@@ -5,7 +5,7 @@ parent: Features
 nav_order: 3
 ---
 
-## Create Message
+# Create Message
 
 * A client sends a text, user hash and the channel hash to the service. Note: if
   the user hash or channel hash does not exist, the service will create in the
@@ -13,10 +13,10 @@ nav_order: 3
 * The service verifies if user hash and channel hash are note empty, persist the
   data and returns the a JSON object representing a message.
 
-## HTTP(S) endpoints
+## HTTPS Endpoints
 
 * /talk/message/create
-* HTTP method: POST
+* Method: POST
 * Consumes: application/x-www-form-urlencoded
 * Produces: application/json
 * Examples:

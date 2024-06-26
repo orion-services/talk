@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -84,9 +84,9 @@ public class GraphQl {
     @Mutation
     public Uni<MessageEntity> createMessage(
             final String text,
-            final String userName,
+            final String channelHash,
             final String userHash,
-            final String channelHash) {
+            final String userName) {
 
         return controller.createMessage(text, userName, userHash, channelHash)
                 .onItem().ifNotNull().transform(m -> m)

@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,7 @@
  */
 package dev.orion.talk.rest;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
-
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-
 import io.quarkus.test.junit.QuarkusTest;
-import io.vertx.core.cli.annotations.Description;
-import jakarta.ws.rs.core.Response;
 
 /**
  * Integration tests for the REST API of the Talk application.

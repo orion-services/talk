@@ -1,6 +1,6 @@
 /**
  * @License
- * Copyright 2023 Orion Services @ https://github.com/orion-services
+ * Copyright 2024 Orion Services @ https://github.com/orion-services
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,10 @@ public class MessageUC {
      * @return Message object.
      */
     public Message createMessage(final String text) {
-        Message message = null;
+        Message message = new Message();
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("The text can't be empty");
         } else {
-            message = new Message();
             message.setText(text);
             message.setTimestamp(Instant.now());
         }
